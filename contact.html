@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-moi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#"  style="--i:1" class="logo">Portfolio.</a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="About.html" style="--i:2">About</a>
+            <a href="Projects.html" style="--i:4">Projects</a>
+            <a href="contact.html" class="active" style="--i:5">Contact</a>
+        </nav>
+    
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h2>Contactez-moi</h2>
+            <p>Vous avez un projet ou une question ? N'hésitez pas à me contacter via le formulaire ci-dessous.</p>
+            <form id="contact-form" action="" method="POST">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Votre message" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+            <p id="form-response" style="display: none;"></p>
+        </section>
+    </main>
+
+    <script src="contact-script.js"></script>
+</body>
+</html>

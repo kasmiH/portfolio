@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Houda Kasmi | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #141b34;
+      --card: rgba(255,255,255,0.06);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #8b5cf6;
+      --accent-2: #ec4899;
+      --line: rgba(255,255,255,0.1);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top right, rgba(139,92,246,0.18), transparent 30%),
+                  radial-gradient(circle at bottom left, rgba(236,72,153,0.14), transparent 25%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(11,16,32,0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--text);
+    }
+
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid rgba(139,92,246,0.35);
+      border-radius: 999px;
+      color: #ddd6fe;
+      background: rgba(139,92,246,0.08);
+      font-size: 0.9rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span,
+    .gradient-text {
+      background: linear-gradient(135deg, #c4b5fd, #f9a8d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h3 {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: #ddd6fe;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 1.8rem;
+      font-size: 1rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-image {
+      aspect-ratio: 4 / 5;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      color: #ede9fe;
+    }
+
+    .socials, .btn-group {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .socials { margin-bottom: 1.4rem; }
+
+    .socials a {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(139,92,246,0.35);
+      background: rgba(255,255,255,0.04);
+      transition: 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .socials a:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-color: transparent;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.95rem 1.35rem;
+      border-radius: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: 0 12px 30px rgba(139,92,246,0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 35px rgba(139,92,246,0.35);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(139,92,246,0.35);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+    }
+
+    .about-list {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.25rem;
+    }
+
+    .about-list li {
+      list-style: none;
+      color: var(--muted);
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+    }
+
+    .about-list i { color: #c4b5fd; margin-top: 0.25rem; }
+
+    .skills-grid,
+    .services-grid,
+    .projects-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .skills-grid { grid-template-columns: repeat(4, 1fr); }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .projects-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .skill,
+    .service,
+    .project {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.4rem;
+      transition: 0.3s ease;
+    }
+
+    .skill:hover,
+    .service:hover,
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: rgba(139,92,246,0.28);
+    }
+
+    .skill i,
+    .service i {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: #c4b5fd;
+    }
+
+    .skill h4,
+    .service h4,
+    .project h4 {
+      margin-bottom: 0.45rem;
+    }
+
+    .skill p,
+    .service p,
+    .project p,
+    .contact-info p,
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .project .project-top {
+      height: 180px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.18), rgba(236,72,153,0.14));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #ddd6fe;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.9rem 0 1rem;
+    }
+
+    .tag {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #ddd6fe;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .contact-item i {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: rgba(139,92,246,0.12);
+      color: #ddd6fe;
+      flex-shrink: 0;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-family: inherit;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: rgba(139,92,246,0.45);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 992px) {
+      .hero,
+      .about-grid,
+      .contact-grid,
+      .skills-grid,
+      .services-grid,
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero { gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+
+      .hero,
+      .about-grid,
+      .contact-grid,
+      .skills-grid,
+      .services-grid,
+      .projects-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 1rem;
+      }
+
+      .hero-card { order: -1; }
+
+      section { padding: 4rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="logo">Houda<span>Kasmi</span></a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div>
+        <span class="eyebrow">Available for freelance projects</span>
+        <h1>Hi, I'm <span>Houda Kasmi</span></h1>
+        <h3>Web Developer | Computer Science & Mathematics Graduate</h3>
+        <p>
+          As a Computer Science and Mathematics graduate, I bring analytical thinking, adaptability,
+           and a strong motivation to grow in the field of web development. I am eager to apply my skills
+            in real-world projects, collaborate with teams, and continue learning modern technologies.
+        </p>
+
+        <div class="socials">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/kasmih" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="kasmi.hoda@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+        <div class="btn-group">
+          <a href="kasmihouda-CV.pdf" download="kasmihouda-CV.pdf" class="btn btn-primary">
+            <i class="fa-solid fa-download"></i> Download CV
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fa-solid fa-paper-plane"></i> Contact Me
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-image">
+          <img src="image1.jpg" alt="Houda Kasmi profile photo">
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <strong>4+</strong>
+            <span>Core Skills</span>
+          </div>
+          
+          <div class="stat">
+            <strong>Web</strong>
+            <span>Portfolio Ready</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About <span class="gradient-text">Me</span></h2>
+          <p>A blend of logic and visual creativity, building digital work that is both functional and beautiful.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <h3>Who I Am</h3>
+            <p>
+              I am a passionate web developer and creative designer from Morocco with a strong interest in
+              front-end development, digital branding, motion design, and visual storytelling.
+            </p>
+            <ul class="about-list">
+              <li><i class="fa-solid fa-check"></i> Building responsive and modern websites</li>
+              <li><i class="fa-solid fa-check"></i> Focused on clean design and user-friendly experiences</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>My Goal</h3>
+            <p>
+              My goal is to help businesses and brands present themselves in a stronger, more creative way through
+              websites, promotional visuals experiences.
+            </p>
+            <div class="btn-group" style="margin-top: 1.2rem;">
+              <a href="#projects" class="btn btn-secondary">View Projects</a>
+              <a href="#services" class="btn btn-secondary">My Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>My <span class="gradient-text">Skills</span></h2>
+          <p>Technical tools and creative abilities I use to build impactful digital work.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill">
+            <i class="fa-brands fa-html5"></i>
+            <h4>HTML / CSS</h4>
+            <p>Responsive layouts, clean structure, modern UI styling, and user-friendly interfaces.</p>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-js"></i>
+            <h4>JavaScript</h4>
+            <p>Interactive features, DOM manipulation, and dynamic front-end functionality.</p>
+          </div>
+          <div class="skill">
+            <i class="fa-brands fa-php"></i>
+            <h4>PHP / Laravel</h4>
+            <p>Backend logic, routing, forms, and structured web application development.</p>
+          </div>
+
+          <div class="skill">
+            <i class="fa-brands fa-database"></i>
+            <h4>SQL</h4>
+            <p>Backend logic, routing, forms, and structured web application development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>My <span class="gradient-text">Services</span></h2>
+          <p>What I can create for brands, businesses, and personal projects.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h4>Website Creation</h4>
+            <p>Portfolio websites, landing pages, and responsive business websites with clean design.</p>
+          </div>
+          <div class="service">
+            <i class="fa-solid fa-bullhorn"></i>
+            <h4>Visual Advertising</h4>
+            <p>Creative promotional visuals for social media, products, services, and branding campaigns.</p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured <span class="gradient-text">Projects</span></h2>
+          <p>Replace these cards with your real projects, portfolio links, or case studies.</p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project">
+            <div class="project-top"><i class="fa-solid fa-globe"></i></div>
+            <h4>Personal Portfolio Website</h4>
+            <p>A modern portfolio website to present my profile, services, and creative work online.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <a href="https://kasmih.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Live</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact <span class="gradient-text">Me</span></h2>
+          <p>If you need a website, creative visual, or motion content, feel free to reach out.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-info">
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>kasmihouda56@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fa-brands fa-linkedin-in"></i>
+              <div>
+                <h4>LinkedIn</h4>
+                <p>/in/houda-kasmi</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fa-brands fa-github"></i>
+              <div>
+                <h4>GitHub</h4>
+                <p>github.com/kasmih</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <form class="contact-form">
+              <input type="text" placeholder="Your Name" required>
+              <input type="email" placeholder="Your Email" required>
+              <input type="text" placeholder="Subject">
+              <textarea rows="6" placeholder="Your Message"></textarea>
+              <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Houda Kasmi. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
